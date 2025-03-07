@@ -10,13 +10,13 @@ To see the concept of branch go see [This youtube video](https://www.youtube.com
 To see actual use of branch go see [this youtube video](https://www.youtube.com/watch?v=QV0kVNvkMxc)
 
 - To update the code on pc : "git pull"
-- To add modification : "git add <path of modified file>" (if it's a folder it will add all modified files in this folder)
-- To commit (AKA prepare to upload) : "git commit -m <Super description>"
+- To add modification : "git add \<path of modified file\>" (if it's a folder it will add all modified files in this folder)
+- To commit (AKA prepare to upload) : "git commit -m \<Super description\>"
 - To see some important info : "git status" (you can basically do it every time you do a git command this is really good)
 - To push (AKA upload) : "git push"
-- To change branch : "git switch <name of branch>" or "git checkout <name of branch"
-- To create a new branch : "git branch <name of branch>"
-- To merge branches : "git merge <branch to import>" in the growing branch
+- To change branch : "git switch \<name of branch\>" or "git checkout <name of branch"
+- To create a new branch : "git branch \<name of branch\>"
+- To merge branches : "git merge \<branch to import\>" in the growing branch
 - To list all the existing branches : "git branch -a"
 
 # Some good practices :
