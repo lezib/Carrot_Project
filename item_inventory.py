@@ -51,3 +51,9 @@ class Inventory:
         print("Inventory:")
         for item in self.items:
             print(f"- {item.name} ({item.item_type}): {item.effect}")
+
+# Define some items
+carrot_daggers = Item("Carrot Daggers", "weapon", 20)
+banana_smoothie = Item("Banana Smoothie", "healing", 20)
+spinach_power = Item("Spinach Power", "buff", 10)
+kale_armor = Item("Kale Armor", "shield", 30)
