@@ -88,5 +88,18 @@ class First_weapon_choice(Menu) :
             ]
         )
 
-# class Fight(Menu) :
-#     def __init__(self,game,) :
+class Home_menu(Menu) :
+    def __init__(self,game) :
+        super().__init__(
+            "===== HOME =====",
+            [
+                "New game",
+                "Continue my game",
+                "Exit"
+            ],
+            [
+                lambda: game.main_loop,
+                lambda: game.newGame,
+                exit
+            ]
+        )
