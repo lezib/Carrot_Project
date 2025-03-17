@@ -9,6 +9,7 @@ class Menu() :
         The context is the text printed before a the choice
         Options is a list of string to describe the possible choice
         Functions is a list of functions, the functions of the option n is at n-1 index
+        And must return a type 'Menu'
         
         Exemple of use :
         def main_menu() :
@@ -25,7 +26,7 @@ class Menu() :
         self.option = self.generate_text_menu(options)
         self.functions = functions
 
-    def run(self) -> int :
+    def run(self) :
         index_choosed = None
 
         while index_choosed == None: # retry until the answer is valid
@@ -34,29 +35,37 @@ class Menu() :
             print(self.option)
 
             user_input = input(">>> ")
+
+            # Verification of the input
             if not self.is_valid_input(user_input) :
-                self.error_show("Your input is not valid")
+                self.error_show("Your input is not valid", 1)
                 continue
             if user_input == "exit" :
-                return 1
+                return exit
             index_choosed = int(user_input) - 1
 
             if 0 > index_choosed or index_choosed >= len(self.functions) :
-                self.error_show("Your input is not valid")
+                self.error_show("Your input is not valid", 1)
                 index_choosed = None
-        print()
-        self.functions[index_choosed]() # execute the choosed function
-        return 0
+            # End of verification of input
 
-    def error_show(self,text:str) -> None :
+        print()
+        return self.functions[index_choosed] # return the choosed function
+
+    def error_show(self,text:str, time : float) -> None :
         print(text)
-        sleep(1)
+        sleep(time)
     
     def generate_text_menu(self,option : list[str]) -> str :
+        """Auto format the option like this :
+        1 : option1
+        2 : option2
+        ...
+        """
         i = 1
         res = ""
         for op in option :
-            res += f"{str(i)} : {op}\n"
+            res += f"{i} : {op}\n"
             i+=1
         return res
 
@@ -71,7 +80,7 @@ class Menu() :
 
 
 class First_weapon_choice(Menu) :
-    def __init__(self,game):
+    def __init__(self,game): # put game for testing purpose
         super().__init__(
             "Choose your first weapon !",
             [
@@ -98,8 +107,25 @@ class Home_menu(Menu) :
                 "Exit"
             ],
             [
-                lambda: game.main_loop,
-                lambda: game.newGame,
-                exit
+                game.main_loop,
+                lambda: print("oui"), First_weapon_choice(self),
+                game.stop
+            ]
+        )
+
+class Debug_menu(Menu) :
+    """
+    The purpose of this menu is for debugging the travel between menus, and all of its options lead to the Home_menu
+    """
+    def __init__(self,game,context:str):
+        super().__init__(
+            f"===== Debug Menu ====\nYou landed in a debug Menu\nafter {context}",
+            [
+                "Nice !",
+                "This is bad :("
+            ],
+            [
+                game.stop,
+                game.stop
             ]
         )
