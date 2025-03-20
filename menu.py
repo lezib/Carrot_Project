@@ -108,7 +108,7 @@ class Home_menu(Menu) :
             ],
             [
                 game.main_loop,
-                lambda: print("oui"), First_weapon_choice(self),
+                game.newGame,
                 game.stop
             ]
         )
