@@ -2,6 +2,7 @@ from os import system
 from os import name as OS_NAME
 from time import sleep
 from weapon import *
+from enemy import *
 
 class Menu:
     """
@@ -152,8 +153,8 @@ class Home_menu(Menu):
                 "Exit"
             ],
             [
-                game.main_loop,
                 game.newGame,
+                game.load_save,
                 game.stop
             ]
         )
@@ -174,12 +175,47 @@ class Debug_menu(Menu):
         super().__init__(
             f"===== Debug Menu ====\nYou landed in a debug Menu\nafter {context}",
             [
-                "Nice!",
-                "This is bad :("
+                "Go home",
+                "Quit program"
             ],
             [
-                game.stop,
+                game.go_home,
                 game.stop
             ]
         )
 
+class Combat_Menu(Menu) :
+    """
+    A temporary Menu to test Enemy
+    """
+
+    def __init__(self, game, enemy:Enemy) :
+        self.game = game
+        self.enemy = enemy
+        super().__init__(
+            f"{enemy.name} appeared !\n{enemy.ascii}\n\nWhat do you want to do !?",
+            [
+                "Attack !",
+                "Eat Something",
+                "Leave !"
+            ],
+            [
+                self.attack,
+                self.eat,
+                self.leave
+            ]
+        )
+
+    def attack(self) :
+        dodged = self.enemy.try_dodge()
+        if dodged :
+            damage = 0
+        else :
+            damage = self.game.weapon.damage 
+        return Debug_menu(self.game,f"trying attacking the {self.enemy.name}\n\nThe {self.enemy.name} dodge :{dodged}\nYou did {damage} damage to it")
+
+    def eat(self) :
+        return Debug_menu(self.game,"eating something")
+
+    def leave(self) :
+        return Debug_menu(self.game,f"Leaving the {self.enemy.name}")

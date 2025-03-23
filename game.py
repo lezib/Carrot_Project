@@ -48,7 +48,8 @@ class Game:
             Menu: The debug menu instance with a message about the chosen weapon.
         """
         self.weapon = weapon
-        return Debug_menu(self, f"choosing your weapon : {self.weapon}")
+        # return Debug_menu(self, f"choosing your weapon : {self.weapon}")
+        return Combat_Menu(self,Donut())
 
     def newGame(self) -> Menu:
         """
@@ -59,6 +60,12 @@ class Game:
         """
         # Initialization of the saving file
         return First_weapon_choice(self)
+
+    def load_save(self) -> Debug_menu :
+        return Debug_menu(self,"loading a save")
+
+    def go_home(self) -> Home_menu :
+        return Home_menu(self)
 
     def main_loop(self) -> None:
         """
@@ -79,3 +86,4 @@ class Game:
                 print("[BEGINNING OF DEBUG] ")
                 input("[END OF DEBUG] type something to continue")
 
+i = Game(False)
