@@ -1,0 +1,8 @@
+Weapon Module
+===========
+
+.. automodule:: weapon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
