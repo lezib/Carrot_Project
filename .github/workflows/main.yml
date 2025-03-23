@@ -6,8 +6,11 @@ on:
       - 'release-*'  # Trigger the workflow only on tags that start with "release-"
 
 jobs:
-  build:
+  build-linux:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
 
     steps:
       - name: Checkout code
@@ -18,48 +21,69 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            .cache/pip
-            venv/
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
+      - name: Build Linux application
         run: |
           python -m venv venv
           source venv/bin/activate
-          python -m pip install --upgrade pip
-          # python -m pip install -r requirements.txt
           python -m pip install pyinstaller
+          pyinstaller --onefile --name Carrot-Project-linux game.py
 
-      - name: Build application
-        run: |
-          source venv/bin/activate
-          pyinstaller --onefile --name Carrot-Project game.py
-
-      - name: Upload build artifacts
+      - name: Upload Linux build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: dist
+          name: dist-linux
           path: dist/
 
-  create_release:
-    needs: build
-    runs-on: ubuntu-latest
+  build-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+      packages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download build artifacts
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Build Windows application
+        run: |
+          python -m venv venv
+          .\venv\Scripts\Activate
+          python -m pip install pyinstaller
+          pyinstaller --onefile --name Carrot-Project-windows game.py
+
+      - name: Upload Windows build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-windows
+          path: dist/
+
+  create_release:
+    needs: [build-linux, build-windows]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Linux build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: dist/
+          name: dist-linux
+          path: dist-linux/
+
+      - name: Download Windows build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-windows
+          path: dist-windows/
 
       - name: Create Release
         id: create_release
@@ -67,19 +91,29 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release of Carrot-Project version ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
+          release_name: Release of Carrot-Project version ${{ github.ref_name }}
           body: |
             Release created using GitHub Actions.
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload Linux Release Asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/Carrot-Project
-          asset_name: Carrot-Project
+          asset_path: dist-linux/Carrot-Project-linux
+          asset_name: Carrot-Project-linux
+          asset_content_type: application/octet-stream
+
+      - name: Upload Windows Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist-windows/Carrot-Project-windows.exe
+          asset_name: Carrot-Project-windows.exe
           asset_content_type: application/octet-stream
