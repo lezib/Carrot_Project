@@ -52,13 +52,40 @@ class Player:
         self.special = special
         self.cooldown = 0
         self.accuracy_penalty = 0
+        
+        # New additions to player class 
+        self.dodge_next = False  # For Berry Ninja
+        self.damage_reduction = 1.0  # For Sergeant Broccoli
+        self.next_attack_multiplier = 1.0  # For Captain Carrot
+        self.cooldown = 0
 
     def attack(self):
         effective_accuracy = self.weapon.accuracy - self.accuracy_penalty
         if random.randint(1, 100) <= max(0, effective_accuracy):
             return self.weapon.damage
         return 0
-
+    
+    #Update the use_special function
+    def use_special(self):
+        if self.cooldown > 0:
+            print(f"Ability on cooldown! ({self.cooldown} turns left)")
+            return False
+    
+        if self.special == "Enhanced Eyesight":
+            self.next_attack_multiplier = 1.5
+            print("Weak spots identified! Next attack +50% damage!")
+        elif self.special == "Shield Boost":
+            self.shield += 20
+            self.damage_reduction = 0.5  # 50% less damage
+            print("Shield boosted! Damage reduced for 2 turns.")
+        elif self.special == "Berry Dash":
+            self.dodge_next = True
+            print("Dashing forward! Will dodge next attack.")
+    
+        self.cooldown = 3
+        return True
+    
+    ''' previous code for the use_special
     def use_special(self):
         if self.special == "Enhanced Eyesight":
             return int(self.weapon.damage * 1.5)
@@ -70,6 +97,7 @@ class Player:
             print("Berry Dash activated! Dodging next attack.")
             return 15  # Extra damage
         return 0
+    '''
 
 # Mystery Box System
 
