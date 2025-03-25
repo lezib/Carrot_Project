@@ -219,7 +219,7 @@ for enemy in enemy_list:
     # Mystery box phase (after level 1)
     if enemy.name != "Junky Dummy":
         if random.choice([True, False]):
-            reward = open_mystery_box()
+            reward = handle_mystery_box()
             if isinstance(reward, Weapon):
                 player.weapon = reward
                 print(f"New weapon equipped: {player.weapon.name}")
