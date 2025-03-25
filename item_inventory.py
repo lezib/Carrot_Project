@@ -10,24 +10,13 @@ class Item:
         self.effect = effect  # e.g., +20 HP, +10 Attack, +Shield, or damage dealt
         self.is_debuff = is_debuff  # True if it's a debuff, False if it's a buff or other item
 
-    def use(self, player):
-        #Use the item and apply its effect to the player.
-        if self.is_debuff:
-            if self.item_type == "debuff":
-                player.attack -= self.effect
-                print(f"{player.name} used {self.name} and lost {self.effect} Attack!")
-        elif self.item_type == "healing":
-            player.hp += self.effect
-            print(f"{player.name} used {self.name} and gained {self.effect} HP!")
-        elif self.item_type == "buff":
-            player.attack += self.effect
-            print(f"{player.name} used {self.name} and gained +{self.effect} Attack!")
-        elif self.item_type == "shield":
-            player.shield += self.effect
-            print(f"{player.name} used {self.name} and gained +{self.effect} Shield!")
-        elif self.item_type == "weapon":
-            player.weapon = self  # Equip the weapon
-            print(f"{player.name} equipped {self.name}!")
+def use(self, target):
+    if self.item_type == "healing":
+        target.hp += self.effect
+    elif self.item_type == "shield":
+        target.shield += self.effect
+    elif self.item_type == "debuff":
+        target.attack += self.effect  # Negative effect reduces attack
 
 class Inventory:
     def __init__(self):
