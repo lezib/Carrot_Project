@@ -1,5 +1,5 @@
 import random
-
+from mystery_boxes import WeaponBox, BuffDebuffBox
 # Weapon Class
 class Weapon:
     def __init__(self, name, damage, accuracy, special):
@@ -99,8 +99,21 @@ class Player:
         return 0
     '''
 
-# Mystery Box System
+# Updated Mystery Box System to match the mystery_box file contents
+def handle_mystery_box(player):
+    print("\nChoose a box type:")
+    print("1. Weapon Box")
+    print("2. Buff/Debuff Box")
+    
+    choice = input("Select (1-2): ")
+    if choice == "1":
+        WeaponBox().open(player)
+    elif choice == "2":
+        BuffDebuffBox().open(player)
+    else:
+        print("Invalid choice!")
 
+''' previous mystery box system (we can erase if we don't need it again)
 def open_mystery_box():
     mystery_outcomes = [
         ("Better Weapon", Weapon("Green Bean Launcher", 30, 65, "High Power")),
@@ -115,6 +128,7 @@ def open_mystery_box():
     choice = random.choice(mystery_outcomes)
     print(f"You opened a mystery box: {choice[0]}")
     return choice[1]
+'''
 
 # Game Combat System
 
