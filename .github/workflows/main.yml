@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        run: |
+          git checkout main || git checkout -b main
+          git pull origin main
 
       - name: Set up Python
         uses: actions/setup-python@v4
