@@ -29,6 +29,7 @@ jobs:
           source venv/bin/activate
           python -m pip install sphinx # To generate the documentation
           python -m pip install pylint # To generate the UML
+          sudo apt-get install graphviz
 
           pyreverse -AS -o png -p UML *.py -d UML # make UML
           make docs/html # make the technical documentation
