@@ -1,5 +1,5 @@
 Weapon Module
-============
+===========
 
 .. automodule:: weapon
    :members:
