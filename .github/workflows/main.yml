@@ -4,9 +4,47 @@ on:
   push:
     tags:
       - 'release-*'  # Trigger the workflow only on tags that start with "release-"
+      - 'doc'
 
 jobs:
+  build-documentation:
+    if: github.ref == 'refs/tags/doc'
+    runs-on: ubuntu-latest
+    permission:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Build Documentation
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          python -m pip install sphinx # To generate the documentation
+          python -m pip install pylint # To generate the UML
+
+          pyreverse -AS -o png -p UML *.py -d UML # make UML
+          make docs/html # make the technical documentation
+
+      - name: Commit Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Update documentation"
+          git push origin main
+
   build-linux:
+    if: startWith('github.ref', 'refs/tags/release-')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,7 +63,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          python -m pip install pyinstaller
+          python -m pip install pyinstaller # To generate the binary/exe
+
           pyinstaller --onefile --name Carrot-Project-linux game.py
 
       - name: Upload Linux build artifacts
@@ -35,6 +74,7 @@ jobs:
           path: dist/
 
   build-windows:
+    if: startWith('github.ref', 'refs/tags/release-')
     runs-on: windows-latest
     permissions:
       contents: write
@@ -53,7 +93,8 @@ jobs:
         run: |
           python -m venv venv
           .\venv\Scripts\Activate
-          python -m pip install pyinstaller
+          python -m pip install pyinstaller # To generate the binary/exe
+
           pyinstaller --onefile --name Carrot-Project-windows game.py
 
       - name: Upload Windows build artifacts
@@ -63,6 +104,7 @@ jobs:
           path: dist/
 
   create_release:
+    if: startWith('github.ref', 'refs/tags/release-')
     needs: [build-linux, build-windows]
     runs-on: ubuntu-latest
     permissions:
@@ -92,7 +134,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release of Carrot-Project version ${{ github.ref_name }}
+          release_name: Carrot-Project version ${{ github.ref_name }}
           body: |
             Release created using GitHub Actions.
           draft: false
