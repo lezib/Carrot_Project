@@ -31,8 +31,12 @@ jobs:
           python -m pip install pylint # To generate the UML
           sudo apt-get install graphviz
 
-          pyreverse -AS -o png -p UML *.py -d UML # make UML
-          make docs/html # make the technical documentation
+          # Make the UML
+          pyreverse -AS -o png -p UML *.py -d UML
+
+          # make the technical documentation
+          cd docs
+          make html 
 
       - name: Commit Changes
         env:
