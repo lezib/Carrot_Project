@@ -44,10 +44,10 @@ class Enemy:
         Returns:
             int: The damage done to the player.
         """
-        if not randint(1, 100) <= 90:  # 10% miss chance
-            return 0
+        if randint(1, 100) <= 90:  # 10% miss chance
+            return self.damage
         else:
-            return self.damage * randint(1, 2)  # critical hit = damage * 2
+            return 0
 
     def hit(self, damage_received: int) -> bool:
         """
@@ -89,10 +89,10 @@ class Boss(Enemy):
         self.turn_counter += 1
         if self.turn_counter % 2 == 0:  # trigger the heal every 2 turns
             self.hp += self.heal
-        if not randint(1, 100) <= 90:  # 10% miss chance
+        if not randint(1, 100) <= 80:  # 10% miss chance
             return 0
         else:
-            return self.damage * randint(1, 2)  # critical hit = damage * 2
+            return self.damage
 
 class Donut(Enemy):
     def __init__(self):
@@ -103,7 +103,7 @@ class Donut(Enemy):
             "donut",
             5,
             2,
-            5,
+            1,
             """⠀⠀⠀⠀⠀⠀⠀⢀⡠⠤⠄⠀⠒⠂⢀⡤⠤⢀⡀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⡀⠔⢈⠀⠀⡿⠀⢀⣤⡄⠈⠋⢁⣀⠀⢈⡒⢄⠀⠀⠀⠀
 ⠀⠀⣠⠊⣁⡀⠉⠋⠀⣦⠀⠀⠁⢀⠀⠀⠀⠛⠀⠘⠃⣄⠑⢄⠀⠀
@@ -129,7 +129,7 @@ class Burger(Enemy):
             "Burger",
             5,
             2,
-            5,
+            0,
             """
 ⠀⠀⠀⠀⠀⠀⠀⣀⣤⣶⣶⣿⣿⣿⣿⣿⣿⠿⠷⣶⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣯⣀⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀
@@ -155,7 +155,7 @@ class Frite(Enemy):
             "Frite",
             5,
             2,
-            5,
+            3,
             """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢤⣆⠀⣀⡀⠀⣤⡄⢸⣿⠀⣶⠀⣼⡇⣠⡀⢀⣷⠂⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠈⠉⠀⢻⣿⠀⢿⡇⢸⣿⠀⡿⠀⣿⠃⣿⠁⣼⡟⠀⣶⡄⠀⠀⠀⠀
@@ -173,33 +173,6 @@ class Frite(Enemy):
 ⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀"""
         )
 
-class Popcorn(Enemy):
-    def __init__(self):
-        """
-        Initialize a Popcorn enemy with predefined attributes.
-        """
-        super().__init__(
-            "Popcorn",
-            5,
-            2,
-            5,
-            """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢠⣤⣤⣴⠿⢿⣿⣿⣿⣿⣆⣠⣤⣤⡀⢀⣀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣴⡆⢸⣿⡟⢡⣴⡀⠻⠿⠿⣿⣿⣿⣿⣿⣇⣈⣉⡁⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⣠⣤⣄⡈⠛⣿⣿⣿⣇⣤⣶⡆⢸⣿⣿⣿⡟⢋⣙⣻⡟⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢿⣿⣿⣿⣄⣼⣿⣿⣿⣿⣿⣷⣾⡟⢡⣤⣤⣾⣿⣿⣶⡶⠀⠀⠀⠀
-⠀⠀⠀⠀⢀⣉⣉⣙⡛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠚⠛⠛⢛⣋⣉⣉⡀⠀⠀⠀⠀
-⠀⠀⠀⠀⠘⣿⣿⣿⣿⡀⢸⣿⣿⣿⡇⢸⣿⣿⣿⡇⢀⣿⣿⣿⣿⠃⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢿⣿⣿⣿⡇⠸⠛⠋⣉⣁⣈⣉⠙⠛⠇⢸⣿⣿⣿⡿⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢸⣿⣿⣿⠃⣰⣾⣿⣿⣿⣿⣿⣿⣷⣆⠘⣿⣿⣿⡇⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⣿⣿⣿⡀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣿⣿⣿⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢹⣿⣿⣷⠀⣈⡉⠛⠛⠛⠛⢉⣁⠀⣾⣿⣿⡏⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⡄⢹⣿⣿⡇⢸⣿⣿⡏⢠⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠈⠉⠉⠁⠈⠉⠉⠁⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀"""
-        )
-
 class Bonbon(Enemy):
     def __init__(self):
         """
@@ -209,7 +182,7 @@ class Bonbon(Enemy):
             "Bonbon",
             5,
             2,
-            5,
+            4,
             """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁⠜⡟⢲⡄⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⢎⠎⡠⠋⡨⠦⡄
@@ -236,7 +209,7 @@ class Pizza(Enemy):
             "Pizza",
             5,
             2,
-            5,
+            2,
             """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣶⣶⣦⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣷⣤⠀⠈⠙⢿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀
@@ -262,7 +235,7 @@ class Tacos(Enemy):
             "Tacos",
             5,
             2,
-            5,
+            1,
             """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢀⣤⣀⠀⠀⢀⣴⢶⣄⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⣠⡾⠛⢷⣄⣿⠁⠉⠻⠾⠛⠁⠀⠙⢛⣛⠻⣧⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠉⠉⠛⠛⠋⠀⢀⣀⣉⢀⣠⣤⣴⠛⠲⣤⡖⠋⠉⠈⠙⣦⣦⣿⣇⠀⠀⠀⠀⠀⠀⠀

@@ -25,7 +25,6 @@ class Character:
 
         self.special_name = special_name
         self.special_desc = special_desc
-        self.accuracy_penalty = 0
         self.countdown = 0
         self.ability_threshold = ability_threshold
         pass
@@ -37,12 +36,8 @@ class Character:
         Returns:
             int: The damage dealt, or 0 if the attack misses.
         """
-        effective_accuracy = self.weapon.accuracy - self.accuracy_penalty
         self.countdown += 1
-        if effective_accuracy <= 0:
-            return 0
-        else:
-            return self.weapon.damage if randint(1, 100) <= effective_accuracy else 0
+        return self.weapon.damage
 
     def try_dodge(self) -> bool:
         """
@@ -75,7 +70,7 @@ class Berry_Ninja(Character):
         """
         Initialize a Berry Ninja character with specific attributes and abilities.
         """
-        super().__init__("Berry Ninja", 20, 5, 40, 2, "Berry Dash", "Dashing forward! Will dodge next attack.", Weapon("Berry", 4, 1, 60))
+        super().__init__("Berry Ninja", 5, 1, 40, 2, "Berry Dash", "Dashing forward! Will dodge next attack.", Weapon("Berry", 4))
         self.dodge_next = False
 
     def try_dodge(self) -> bool:
@@ -110,7 +105,7 @@ class Sergeant_Broccoli(Character):
         """
         Initialize a Sergeant Broccoli character with specific attributes and abilities.
         """
-        super().__init__("Sergeant", 40, 10, 25, 3, "Shield Boost", "Weak spots identified! Next attack +50% damage!", Weapon("Broccoli Hammer", 5, 5, 70))
+        super().__init__("Sergeant", 7, 2, 25, 3, "Shield Boost", "You feel more protected !", Weapon("Broccoli Hammer", 5))
         self.damage_reduction = 1.0
 
     def hit(self, received_damage: int) -> bool:
@@ -126,7 +121,7 @@ class Sergeant_Broccoli(Character):
         if self.try_dodge():
             return True
 
-        tmpdamage = received_damage * self.damage_reduction - self.shield
+        tmpdamage = int(received_damage * self.damage_reduction - self.shield)
         if tmpdamage > 0:
             self.hp -= tmpdamage
         return self.hp <= 0
@@ -150,7 +145,7 @@ class Captain_Carrot(Character):
         """
         Initialize a Captain Carrot character with specific attributes and abilities.
         """
-        super().__init__("Captain Carrot", 30, 5, 30, 3, "Enhanced Eyesight", "Weak spots identified! Next attack +50% damage!", Weapon("Carrot Sword", 5, 3, 90))
+        super().__init__("Captain Carrot", 5, 3, 30, 3, "Enhanced Eyesight", "Weak spots identified! Next attack +50% damage!", Weapon("Carrot Sword", 5))
         self.next_attack_multiplier = 1.0
 
     def attack(self):
@@ -160,17 +155,10 @@ class Captain_Carrot(Character):
         Returns:
             int: The damage dealt, or 0 if the attack misses.
         """
-        effective_accuracy = self.weapon.accuracy - self.accuracy_penalty
         self.countdown += 1
-        if effective_accuracy <= 0:
-            return 0
-        else:
-            if randint(1, 100) <= effective_accuracy:
-                final_damage = int(self.weapon.damage * self.next_attack_multiplier)
-                self.next_attack_multiplier = 1.0
-                return final_damage
-            else:
-                return 0
+        final_damage = int(self.weapon.damage * self.next_attack_multiplier)
+        self.next_attack_multiplier = 1.0
+        return final_damage
 
     def use_special(self) -> bool:
         """

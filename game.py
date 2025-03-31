@@ -27,6 +27,7 @@ class Game:
         self.weapon = None
         self.character = None
         self.debug = debug
+        self.enemy_counter = 0
 
         self.main_loop()
 
@@ -51,6 +52,7 @@ class Game:
         return Choose_Character(self)
 
     def go_home(self) -> Home_menu :
+        self.enemy_counter = 0
         return Home_menu(self)
 
     def set_character(self,character:Character) :
@@ -58,7 +60,35 @@ class Game:
         return self.go_combat()
 
     def go_combat(self) :
-        enemy_possible = [Donut(),Burger(),Frite(),Popcorn(),Bonbon(),Pizza(),Tacos()]
+        self.enemy_counter += 1
+        if self.enemy_counter == 6 :
+            return Menu("YEEEE you Won !!",["Play an other game","Exit"],[self.newGame,self.stop])
+        elif self.enemy_counter == 5 :
+            return Combat_Menu(self,
+                               Boss(
+                               "Popcorn",
+                               10,
+                               2,
+                               30,
+                               """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣤⣤⣴⠿⢿⣿⣿⣿⣿⣆⣠⣤⣤⡀⢀⣀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣴⡆⢸⣿⡟⢡⣴⡀⠻⠿⠿⣿⣿⣿⣿⣿⣇⣈⣉⡁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣠⣤⣄⡈⠛⣿⣿⣿⣇⣤⣶⡆⢸⣿⣿⣿⡟⢋⣙⣻⡟⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢿⣿⣿⣿⣄⣼⣿⣿⣿⣿⣿⣷⣾⡟⢡⣤⣤⣾⣿⣿⣶⡶⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣉⣉⣙⡛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠚⠛⠛⢛⣋⣉⣉⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠘⣿⣿⣿⣿⡀⢸⣿⣿⣿⡇⢸⣿⣿⣿⡇⢀⣿⣿⣿⣿⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢿⣿⣿⣿⡇⠸⠛⠋⣉⣁⣈⣉⠙⠛⠇⢸⣿⣿⣿⡿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢸⣿⣿⣿⠃⣰⣾⣿⣿⣿⣿⣿⣿⣷⣆⠘⣿⣿⣿⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣿⣿⣿⡀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢹⣿⣿⣷⠀⣈⡉⠛⠛⠛⠛⢉⣁⠀⣾⣿⣿⡏⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⡄⢹⣿⣿⡇⢸⣿⣿⡏⢠⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠈⠉⠉⠁⠈⠉⠉⠁⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀""",
+                               1)
+                               )
+
+        enemy_possible = [Donut(),Burger(),Frite(),Bonbon(),Pizza(),Tacos()]
         return Combat_Menu(self,enemy_possible[randint(0,len(enemy_possible)-1)])
 
     def main_loop(self) -> None:
