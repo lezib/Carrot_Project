@@ -10,7 +10,7 @@ jobs:
   build-documentation:
     if: github.ref == 'refs/tags/doc'
     runs-on: ubuntu-latest
-    permission:
+    permissions:
       contents: write
       packages: write
 
