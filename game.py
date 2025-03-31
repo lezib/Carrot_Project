@@ -50,9 +50,6 @@ class Game:
         # Initialization of the saving file
         return Choose_Character(self)
 
-    def load_save(self) -> Debug_menu :
-        return Debug_menu(self,"loading a save")
-
     def go_home(self) -> Home_menu :
         return Home_menu(self)
 
