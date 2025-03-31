@@ -3,6 +3,8 @@ from os import name as OS_NAME
 
 from menu import *
 from weapon import *
+from character import Character
+from combat import Combat_Menu
 
 class Game:
     """
@@ -23,6 +25,7 @@ class Game:
         """
         self.running = None
         self.weapon = None
+        self.character = None
         self.debug = debug
 
         self.main_loop()
@@ -37,20 +40,6 @@ class Game:
         self.running = False
         return Home_menu(self)
 
-    def get_weapon(self, weapon: Weapon) -> Menu:
-        """
-        Sets the selected weapon and returns a debug menu with a message about the chosen weapon.
-
-        Args:
-            weapon (Weapon): The weapon to be selected.
-
-        Returns:
-            Menu: The debug menu instance with a message about the chosen weapon.
-        """
-        self.weapon = weapon
-        # return Debug_menu(self, f"choosing your weapon : {self.weapon}")
-        return Combat_Menu(self,Donut())
-
     def newGame(self) -> Menu:
         """
         Initializes a new game, setting up the save file, and returns the first weapon choice menu.
@@ -59,13 +48,21 @@ class Game:
             Menu: The first weapon choice menu instance.
         """
         # Initialization of the saving file
-        return First_weapon_choice(self)
+        return Choose_Character(self)
 
     def load_save(self) -> Debug_menu :
         return Debug_menu(self,"loading a save")
 
     def go_home(self) -> Home_menu :
         return Home_menu(self)
+
+    def set_character(self,character:Character) :
+        self.character = character
+        return self.go_combat()
+
+    def go_combat(self) :
+        enemy_possible = [Donut(),Burger(),Frite(),Popcorn(),Bonbon(),Pizza(),Tacos()]
+        return Combat_Menu(self,enemy_possible[randint(0,len(enemy_possible)-1)])
 
     def main_loop(self) -> None:
         """

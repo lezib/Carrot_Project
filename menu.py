@@ -3,6 +3,7 @@ from os import name as OS_NAME
 from time import sleep
 from weapon import *
 from enemy import *
+from character import *
 
 class Menu:
     """
@@ -105,6 +106,7 @@ class Menu:
             return True
         except:
             return False
+
 class First_weapon_choice(Menu):
     """
     A subclass of Menu for choosing the first weapon in the game.
@@ -149,12 +151,10 @@ class Home_menu(Menu):
             "===== HOME =====",
             [
                 "New game",
-                "Continue my game",
                 "Exit"
             ],
             [
                 game.newGame,
-                game.load_save,
                 game.stop
             ]
         )
@@ -184,38 +184,18 @@ class Debug_menu(Menu):
             ]
         )
 
-class Combat_Menu(Menu) :
-    """
-    A temporary Menu to test Enemy
-    """
-
-    def __init__(self, game, enemy:Enemy) :
-        self.game = game
-        self.enemy = enemy
+class Choose_Character(Menu) :
+    def __init__(self,game) :
         super().__init__(
-            f"{enemy.name} appeared !\n{enemy.ascii}\n\nWhat do you want to do !?",
+            "Choose your Character !!",
             [
-                "Attack !",
-                "Eat Something",
-                "Leave !"
+                "Berry Ninja",
+                "Sergeant Broccoli",
+                "Captain Carrot"
             ],
             [
-                self.attack,
-                self.eat,
-                self.leave
+                lambda : game.set_character(Berry_Ninja()),
+                lambda : game.set_character(Sergeant_Broccoli()),
+                lambda : game.set_character(Captain_Carrot())
             ]
         )
-
-    def attack(self) :
-        dodged = self.enemy.try_dodge()
-        if dodged :
-            damage = 0
-        else :
-            damage = self.game.weapon.damage 
-        return Debug_menu(self.game,f"trying attacking the {self.enemy.name}\n\nThe {self.enemy.name} dodge :{dodged}\nYou did {damage} damage to it")
-
-    def eat(self) :
-        return Debug_menu(self.game,"eating something")
-
-    def leave(self) :
-        return Debug_menu(self.game,f"Leaving the {self.enemy.name}")

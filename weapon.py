@@ -8,7 +8,7 @@ class Weapon:
         name (str): The name of the weapon.
     """
 
-    def __init__(self, name: str, time_use: int, damage: int):
+    def __init__(self, name: str, time_use: int, damage: int, accuracy:int):
         """
         Initializes the Weapon instance with a name, number of uses, and damage.
 
@@ -16,10 +16,12 @@ class Weapon:
             name (str): The name of the weapon.
             time_use (int): The number of times the weapon can be used.
             damage (int): The amount of damage the weapon inflicts.
+            accuracy (int) : a 0 to 100 variable representing the chance of hitting
         """
         self.possible_use = time_use
         self.damage = damage
         self.name = name
+        self.accuracy = accuracy
 
     def use(self):
         """
@@ -45,7 +47,7 @@ class Apple(Weapon):
         """
         Initializes the Apple weapon with 1 use and 1 damage.
         """
-        super().__init__("Apple", 1, 1)
+        super().__init__("Apple", 1, 1, 80)
 
 class Carrot(Weapon):
     """
@@ -56,7 +58,7 @@ class Carrot(Weapon):
         """
         Initializes the Carrot weapon with 1 use and 2 damage.
         """
-        super().__init__("Carrot", 1, 2)
+        super().__init__("Carrot", 1, 2, 50)
 
 class Leek(Weapon):
     """
@@ -67,7 +69,7 @@ class Leek(Weapon):
         """
         Initializes the Leek weapon with 2 uses and 1 damage.
         """
-        super().__init__("Leek", 2, 1)
+        super().__init__("Leek", 2, 1, 90)
 
 class Pumkin(Weapon):
     """
@@ -78,5 +80,5 @@ class Pumkin(Weapon):
         """
         Initializes the Pumpkin weapon with 1 use and 3 damage.
         """
-        super().__init__("Pumkin", 1, 3)
+        super().__init__("Pumkin", 1, 3, 20)
 
