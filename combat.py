@@ -101,18 +101,22 @@ class Player:
 
 # Updated Mystery Box System to match the mystery_box file contents
 def handle_mystery_box(player):
-    print("\nChoose a box type:")
-    print("1. Weapon Box")
-    print("2. Buff/Debuff Box")
-    
-    choice = input("Select (1-2): ")
-    if choice == "1":
+# Prompt for the weapon box
+    print("\n=== Weapon Mystery Box ===")
+    choice = input("Do you want to open the weapon box? (y/n): ").lower()
+    if choice == "y":
         WeaponBox().open(player)
-    elif choice == "2":
+    else:
+        print("You skipped the weapon box.")
+
+    # Prompt for the buff/debuff box
+    print("\n=== Buff/Debuff Mystery Box ===")
+    choice = input("Do you want to open the buff/debuff box? (y/n): ").lower()
+    if choice == "y":
         BuffDebuffBox().open(player)
     else:
-        print("Invalid choice!")
-
+        print("You skipped the buff/debuff box.")
+        
 ''' previous mystery box system (we can erase if we don't need it again)
 def open_mystery_box():
     mystery_outcomes = [
