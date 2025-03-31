@@ -1,0 +1,4 @@
+CarrotProject_venv/*
+*venv/*
+*.dot
+__pycache__/*
