@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Character Module &#8212; Carrot Project 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Combat Module" href="combat.html" />
+    <link rel="prev" title="Weapon Module" href="weapon.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="character-module">
+<h1>Character Module<a class="headerlink" href="#character-module" title="Link to this heading">¶</a></h1>
+<dl class="py class" id="module-character">
+<dt class="sig sig-object py" id="character.Berry_Ninja">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">character.</span></span><span class="sig-name descname"><span class="pre">Berry_Ninja</span></span><a class="reference internal" href="_modules/character.html#Berry_Ninja"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Berry_Ninja" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#character.Character" title="character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Berry_Ninja.try_dodge">
+<span class="sig-name descname"><span class="pre">try_dodge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Berry_Ninja.try_dodge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Berry_Ninja.try_dodge" title="Link to this definition">¶</a></dt>
+<dd><p>Attempt to dodge an incoming attack with a special condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the dodge is successful, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Berry_Ninja.use_special">
+<span class="sig-name descname"><span class="pre">use_special</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Berry_Ninja.use_special"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Berry_Ninja.use_special" title="Link to this definition">¶</a></dt>
+<dd><p>Use the special ability if the countdown threshold is met.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the special ability is used, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="character.Captain_Carrot">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">character.</span></span><span class="sig-name descname"><span class="pre">Captain_Carrot</span></span><a class="reference internal" href="_modules/character.html#Captain_Carrot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Captain_Carrot" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#character.Character" title="character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Captain_Carrot.attack">
+<span class="sig-name descname"><span class="pre">attack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/character.html#Captain_Carrot.attack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Captain_Carrot.attack" title="Link to this definition">¶</a></dt>
+<dd><p>Perform an attack with a potential damage multiplier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The damage dealt, or 0 if the attack misses.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Captain_Carrot.use_special">
+<span class="sig-name descname"><span class="pre">use_special</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Captain_Carrot.use_special"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Captain_Carrot.use_special" title="Link to this definition">¶</a></dt>
+<dd><p>Use the special ability if the countdown threshold is met.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the special ability is used, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="character.Character">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">character.</span></span><span class="sig-name descname"><span class="pre">Character</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shield</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge_score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ability_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">special_desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weapon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="weapon.html#weapon.Weapon" title="weapon.Weapon"><span class="pre">Weapon</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/character.html#Character"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Character" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Character.attack">
+<span class="sig-name descname"><span class="pre">attack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/character.html#Character.attack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Character.attack" title="Link to this definition">¶</a></dt>
+<dd><p>Perform an attack using the character’s weapon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The damage dealt, or 0 if the attack misses.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Character.hit">
+<span class="sig-name descname"><span class="pre">hit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">received_damage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Character.hit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Character.hit" title="Link to this definition">¶</a></dt>
+<dd><p>Process received damage and check if the character is defeated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>received_damage</strong> (<em>int</em>) – The damage received.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the character is defeated, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Character.try_dodge">
+<span class="sig-name descname"><span class="pre">try_dodge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Character.try_dodge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Character.try_dodge" title="Link to this definition">¶</a></dt>
+<dd><p>Attempt to dodge an incoming attack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the dodge is successful, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="character.Sergeant_Broccoli">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">character.</span></span><span class="sig-name descname"><span class="pre">Sergeant_Broccoli</span></span><a class="reference internal" href="_modules/character.html#Sergeant_Broccoli"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Sergeant_Broccoli" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#character.Character" title="character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Sergeant_Broccoli.hit">
+<span class="sig-name descname"><span class="pre">hit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">received_damage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Sergeant_Broccoli.hit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Sergeant_Broccoli.hit" title="Link to this definition">¶</a></dt>
+<dd><p>Process received damage with a damage reduction factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>received_damage</strong> (<em>int</em>) – The damage received.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the character is defeated, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="character.Sergeant_Broccoli.use_special">
+<span class="sig-name descname"><span class="pre">use_special</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/character.html#Sergeant_Broccoli.use_special"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#character.Sergeant_Broccoli.use_special" title="Link to this definition">¶</a></dt>
+<dd><p>Use the special ability if the countdown threshold is met.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the special ability is used, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Carrot Project</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="game.html">Game Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weapon.html">Weapon Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Character Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#character.Berry_Ninja"><code class="docutils literal notranslate"><span class="pre">Berry_Ninja</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#character.Captain_Carrot"><code class="docutils literal notranslate"><span class="pre">Captain_Carrot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#character.Character"><code class="docutils literal notranslate"><span class="pre">Character</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#character.Sergeant_Broccoli"><code class="docutils literal notranslate"><span class="pre">Sergeant_Broccoli</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="combat.html">Combat Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mystery_boxes.html">Mystery_boxes Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="enemy.html">Enemy Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="weapon.html" title="previous chapter">Weapon Module</a></li>
+      <li>Next: <a href="combat.html" title="next chapter">Combat Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Audenard_Maurin Petrovska_Eva Angjushev_Andrej.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/character.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

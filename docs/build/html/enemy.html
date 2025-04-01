@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enemy Module &#8212; Carrot Project 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Mystery_boxes Module" href="mystery_boxes.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="enemy-module">
+<h1>Enemy Module<a class="headerlink" href="#enemy-module" title="Link to this heading">¶</a></h1>
+<dl class="py class" id="module-enemy">
+<dt class="sig sig-object py" id="enemy.Bonbon">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Bonbon</span></span><a class="reference internal" href="_modules/enemy.html#Bonbon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Bonbon" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Boss">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Boss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enemy.html#Boss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Boss" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enemy.Boss.attack">
+<span class="sig-name descname"><span class="pre">attack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/enemy.html#Boss.attack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Boss.attack" title="Link to this definition">¶</a></dt>
+<dd><p>Attack the player and increase the turn counter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The damage done to the player.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Burger">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Burger</span></span><a class="reference internal" href="_modules/enemy.html#Burger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Burger" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Donut">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Donut</span></span><a class="reference internal" href="_modules/enemy.html#Donut"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Donut" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Enemy">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Enemy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">damage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dodge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascii</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/enemy.html#Enemy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Enemy" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="enemy.Enemy.attack">
+<span class="sig-name descname"><span class="pre">attack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/enemy.html#Enemy.attack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Enemy.attack" title="Link to this definition">¶</a></dt>
+<dd><p>Attack the player.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The damage done to the player.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enemy.Enemy.hit">
+<span class="sig-name descname"><span class="pre">hit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">damage_received</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/enemy.html#Enemy.hit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Enemy.hit" title="Link to this definition">¶</a></dt>
+<dd><p>Reduce the HP of the enemy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>damage_received</strong> (<em>int</em>) – The damage received by the enemy.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the enemy is still alive, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="enemy.Enemy.try_dodge">
+<span class="sig-name descname"><span class="pre">try_dodge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/enemy.html#Enemy.try_dodge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Enemy.try_dodge" title="Link to this definition">¶</a></dt>
+<dd><p>Attempt to dodge an incoming attack.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the dodge is successful, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Frite">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Frite</span></span><a class="reference internal" href="_modules/enemy.html#Frite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Frite" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Pizza">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Pizza</span></span><a class="reference internal" href="_modules/enemy.html#Pizza"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Pizza" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="enemy.Tacos">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">enemy.</span></span><span class="sig-name descname"><span class="pre">Tacos</span></span><a class="reference internal" href="_modules/enemy.html#Tacos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#enemy.Tacos" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#enemy.Enemy" title="enemy.Enemy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enemy</span></code></a></p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Carrot Project</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="game.html">Game Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weapon.html">Weapon Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character.html">Character Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combat.html">Combat Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mystery_boxes.html">Mystery_boxes Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Enemy Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Bonbon"><code class="docutils literal notranslate"><span class="pre">Bonbon</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Boss"><code class="docutils literal notranslate"><span class="pre">Boss</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Burger"><code class="docutils literal notranslate"><span class="pre">Burger</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Donut"><code class="docutils literal notranslate"><span class="pre">Donut</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Enemy"><code class="docutils literal notranslate"><span class="pre">Enemy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Frite"><code class="docutils literal notranslate"><span class="pre">Frite</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Pizza"><code class="docutils literal notranslate"><span class="pre">Pizza</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enemy.Tacos"><code class="docutils literal notranslate"><span class="pre">Tacos</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="mystery_boxes.html" title="previous chapter">Mystery_boxes Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Audenard_Maurin Petrovska_Eva Angjushev_Andrej.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/enemy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -36,6 +36,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">menu</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">weapon</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">character</span><span class="w"> </span><span class="kn">import</span> <span class="n">Character</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">combat</span><span class="w"> </span><span class="kn">import</span> <span class="n">Combat_Menu</span>
 
 <div class="viewcode-block" id="Game">
 <a class="viewcode-back" href="../game.html#game.Game">[docs]</a>
@@ -58,7 +60,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">character</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_counter</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">main_loop</span><span class="p">()</span>
 
@@ -75,22 +79,6 @@
         <span class="k">return</span> <span class="n">Home_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Game.get_weapon">
-<a class="viewcode-back" href="../game.html#game.Game.get_weapon">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">get_weapon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Menu</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the selected weapon and returns a debug menu with a message about the chosen weapon.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            weapon (Weapon): The weapon to be selected.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Menu: The debug menu instance with a message about the chosen weapon.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">weapon</span>
-        <span class="k">return</span> <span class="n">Debug_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;choosing your weapon : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">weapon</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
-
-
 <div class="viewcode-block" id="Game.newGame">
 <a class="viewcode-back" href="../game.html#game.Game.newGame">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">newGame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Menu</span><span class="p">:</span>
@@ -101,7 +89,56 @@
 <span class="sd">            Menu: The first weapon choice menu instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Initialization of the saving file</span>
-        <span class="k">return</span> <span class="n">First_weapon_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">Choose_Character</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Game.go_home">
+<a class="viewcode-back" href="../game.html#game.Game.go_home">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">go_home</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Home_menu</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">Home_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Game.set_character">
+<a class="viewcode-back" href="../game.html#game.Game.set_character">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_character</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">character</span><span class="p">:</span><span class="n">Character</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">character</span> <span class="o">=</span> <span class="n">character</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">go_combat</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Game.go_combat">
+<a class="viewcode-back" href="../game.html#game.Game.go_combat">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">go_combat</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_counter</span> <span class="o">==</span> <span class="mi">6</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">Menu</span><span class="p">(</span><span class="s2">&quot;YEEEE you Won !!&quot;</span><span class="p">,[</span><span class="s2">&quot;Play an other game&quot;</span><span class="p">,</span><span class="s2">&quot;Exit&quot;</span><span class="p">],[</span><span class="bp">self</span><span class="o">.</span><span class="n">newGame</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">stop</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_counter</span> <span class="o">==</span> <span class="mi">5</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">Combat_Menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">Boss</span><span class="p">(</span>
+                               <span class="s2">&quot;Popcorn&quot;</span><span class="p">,</span>
+                               <span class="mi">10</span><span class="p">,</span>
+                               <span class="mi">2</span><span class="p">,</span>
+                               <span class="mi">30</span><span class="p">,</span>
+<span class="w">                               </span><span class="sd">&quot;&quot;&quot;⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣄⡀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⠀⢠⣤⣤⣴⠿⢿⣿⣿⣿⣿⣆⣠⣤⣤⡀⢀⣀⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⣴⡆⢸⣿⡟⢡⣴⡀⠻⠿⠿⣿⣿⣿⣿⣿⣇⣈⣉⡁⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⣠⣤⣄⡈⠛⣿⣿⣿⣇⣤⣶⡆⢸⣿⣿⣿⡟⢋⣙⣻⡟⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⢿⣿⣿⣿⣄⣼⣿⣿⣿⣿⣿⣷⣾⡟⢡⣤⣤⣾⣿⣿⣶⡶⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⢀⣉⣉⣙⡛⠛⠛⠛⠛⠛⠛⠛⠛⠀⠚⠛⠛⢛⣋⣉⣉⡀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠘⣿⣿⣿⣿⡀⢸⣿⣿⣿⡇⢸⣿⣿⣿⡇⢀⣿⣿⣿⣿⠃⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⢿⣿⣿⣿⡇⠸⠛⠋⣉⣁⣈⣉⠙⠛⠇⢸⣿⣿⣿⡿⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⢸⣿⣿⣿⠃⣰⣾⣿⣿⣿⣿⣿⣿⣷⣆⠘⣿⣿⣿⡇⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⣿⣿⣿⡀⢻⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣿⣿⣿⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⢹⣿⣿⣷⠀⣈⡉⠛⠛⠛⠛⢉⣁⠀⣾⣿⣿⡏⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⡄⢹⣿⣿⡇⢸⣿⣿⡏⢠⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀</span>
+<span class="sd">⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠈⠉⠉⠁⠈⠉⠉⠁⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀&quot;&quot;&quot;</span><span class="p">,</span>
+                               <span class="mi">1</span><span class="p">)</span>
+                               <span class="p">)</span>
+
+        <span class="n">enemy_possible</span> <span class="o">=</span> <span class="p">[</span><span class="n">Donut</span><span class="p">(),</span><span class="n">Burger</span><span class="p">(),</span><span class="n">Frite</span><span class="p">(),</span><span class="n">Bonbon</span><span class="p">(),</span><span class="n">Pizza</span><span class="p">(),</span><span class="n">Tacos</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="n">Combat_Menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">enemy_possible</span><span class="p">[</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">enemy_possible</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span></div>
 
 
 <div class="viewcode-block" id="Game.main_loop">
@@ -127,6 +164,7 @@
 </div>
 
 
+<span class="n">i</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
           </div>
@@ -157,6 +195,12 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../game.html">Game Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menu.html">Menu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weapon.html">Weapon Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../character.html">Character Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../combat.html">Combat Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mystery_boxes.html">Mystery_boxes Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../enemy.html">Enemy Module</a></li>
 </ul>
 
 <div class="relations">

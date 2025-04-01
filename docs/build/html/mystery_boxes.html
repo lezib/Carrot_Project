@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mystery_boxes Module &#8212; Carrot Project 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Enemy Module" href="enemy.html" />
+    <link rel="prev" title="Combat Module" href="combat.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="mystery-boxes-module">
+<h1>Mystery_boxes Module<a class="headerlink" href="#mystery-boxes-module" title="Link to this heading">¶</a></h1>
+<dl class="py class" id="module-mystery_boxes">
+<dt class="sig sig-object py" id="mystery_boxes.Bonus">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mystery_boxes.</span></span><span class="sig-name descname"><span class="pre">Bonus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Bonus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Bonus" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mystery_boxes.Bonus_box">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mystery_boxes.</span></span><span class="sig-name descname"><span class="pre">Bonus_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Bonus_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Bonus_box" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mystery_boxes.Bonus_box.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="character.html#character.Character" title="character.Character"><span class="pre">Character</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Bonus_box.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Bonus_box.open" title="Link to this definition">¶</a></dt>
+<dd><p>Opens the bonus box and applies a random bonus to the character.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><em>Character</em></a>) – The character to apply the bonus to.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The bonus that was applied to the character.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#mystery_boxes.Bonus" title="mystery_boxes.Bonus">Bonus</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mystery_boxes.Bonus_box_Menu">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mystery_boxes.</span></span><span class="sig-name descname"><span class="pre">Bonus_box_Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Bonus_box_Menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Bonus_box_Menu" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="menu.html#menu.Menu" title="menu.Menu"><code class="xref py py-class docutils literal notranslate"><span class="pre">Menu</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mystery_boxes.Weapon_box">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mystery_boxes.</span></span><span class="sig-name descname"><span class="pre">Weapon_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Weapon_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Weapon_box" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mystery_boxes.Weapon_box.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="weapon.html#weapon.Weapon" title="weapon.Weapon"><span class="pre">Weapon</span></a></span></span><a class="reference internal" href="_modules/mystery_boxes.html#Weapon_box.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Weapon_box.open" title="Link to this definition">¶</a></dt>
+<dd><p>Opens the weapon box and returns a random weapon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A randomly selected weapon from the box.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>wp.Weapon</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mystery_boxes.Weapon_box_Menu">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mystery_boxes.</span></span><span class="sig-name descname"><span class="pre">Weapon_box_Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mystery_boxes.html#Weapon_box_Menu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mystery_boxes.Weapon_box_Menu" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="menu.html#menu.Menu" title="menu.Menu"><code class="xref py py-class docutils literal notranslate"><span class="pre">Menu</span></code></a></p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Carrot Project</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="game.html">Game Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weapon.html">Weapon Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="character.html">Character Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="combat.html">Combat Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mystery_boxes Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mystery_boxes.Bonus"><code class="docutils literal notranslate"><span class="pre">Bonus</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mystery_boxes.Bonus_box"><code class="docutils literal notranslate"><span class="pre">Bonus_box</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mystery_boxes.Bonus_box_Menu"><code class="docutils literal notranslate"><span class="pre">Bonus_box_Menu</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mystery_boxes.Weapon_box"><code class="docutils literal notranslate"><span class="pre">Weapon_box</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mystery_boxes.Weapon_box_Menu"><code class="docutils literal notranslate"><span class="pre">Weapon_box_Menu</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enemy.html">Enemy Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="combat.html" title="previous chapter">Combat Module</a></li>
+      <li>Next: <a href="enemy.html" title="next chapter">Enemy Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Audenard_Maurin Petrovska_Eva Angjushev_Andrej.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/mystery_boxes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
