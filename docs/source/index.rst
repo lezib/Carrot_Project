@@ -18,3 +18,7 @@ documentation for details.
    game
    menu
    weapon
+   character
+   combat
+   mystery_boxes
+   enemy
