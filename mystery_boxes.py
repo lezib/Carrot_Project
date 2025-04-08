@@ -94,12 +94,12 @@ class Mystery_Box_Menu(Menu):
             game: The game object that the menu is associated with.
         """
         self.res = Weapon_box(game).open()
-        self.res = Bonus_box(game).open(game.character)
+        self.bonus = Bonus_box(game).open(game.character)
         game.character.weapon = self.res
         super().__init__(
-            f"====== Weapon Box ! ======\nYou just found a weapon box!\nYou found a {self.res.name}!\nStat: {self.res.damage} damages\n\n====== Bonus Box ! ======\nYou just found a Bonus box!\n{self.res.desc}\nAre you ready for your next fight ?",
+            f"====== Weapon Box ! ======\nYou just found a weapon box!\nYou found a {self.res.name}!\nStat: {self.res.damage} damages\n\n====== Bonus Box ! ======\nYou just found a Bonus box!\n{self.bonus.desc}\nAre you ready for your next fight ?",
             [
-                "Yes !"
+                "Yes !",
                 "No, thanks, GET ME OUT OF HERE"
             ],
             [
