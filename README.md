@@ -7,16 +7,13 @@ Final project for spring semester of 2025 at Deree ACG, Engineering practices
 
 Go to the [release page of this repo](https://github.com/lezib/Carrot_Project/releases) and download the version you need depending of your system.
 
+## Requirement:
+
+You need Pyton 3 installed to play this game.
+
 ## Usage :
 
-### Linux :
-
-Execute `chmod +x ./Carrot-Project-linux` in the terminal.\
-And now you can execute with `./Carrot-Project-linux`.
-
-### Window : 
-
-You can just double click on the file `Carrot-Project-window.exe`.
+Extract all the file from the zip/ tar.gz you dowloaded and in the root of the folder execute `python3 game.py`. And you can play !
 
 # Documentation :
 
