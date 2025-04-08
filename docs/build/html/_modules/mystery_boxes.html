@@ -132,47 +132,29 @@
 </div>
 
 
-<div class="viewcode-block" id="Weapon_box_Menu">
-<a class="viewcode-back" href="../mystery_boxes.html#mystery_boxes.Weapon_box_Menu">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Weapon_box_Menu</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
+<div class="viewcode-block" id="Mystery_Box_Menu">
+<a class="viewcode-back" href="../mystery_boxes.html#mystery_boxes.Mystery_Box_Menu">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Mystery_Box_Menu</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initializes a Weapon_box_Menu object.</span>
+<span class="sd">        Menu where the player discover new objects</span>
+<span class="sd">        Initializes a Mystery_box object.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            game: The game object that the menu is associated with.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="n">Weapon_box</span><span class="p">(</span><span class="n">game</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="n">Bonus_box</span><span class="p">(</span><span class="n">game</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">character</span><span class="p">)</span>
         <span class="n">game</span><span class="o">.</span><span class="n">character</span><span class="o">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">res</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;====== Weapon Box ! ======</span><span class="se">\n</span><span class="s2">You just found a weapon box!</span><span class="se">\n</span><span class="s2">You found a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">!</span><span class="se">\n</span><span class="s2">Stat: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">damage</span><span class="si">}</span><span class="s2"> damages&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot;====== Weapon Box ! ======</span><span class="se">\n</span><span class="s2">You just found a weapon box!</span><span class="se">\n</span><span class="s2">You found a </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">!</span><span class="se">\n</span><span class="s2">Stat: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">damage</span><span class="si">}</span><span class="s2"> damages</span><span class="se">\n\n</span><span class="s2">====== Bonus Box ! ======</span><span class="se">\n</span><span class="s2">You just found a Bonus box!</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">desc</span><span class="si">}</span><span class="se">\n</span><span class="s2">Are you ready for your next fight ?&quot;</span><span class="p">,</span>
             <span class="p">[</span>
-                <span class="s2">&quot;OH! A Bonus Box!&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Yes !&quot;</span>
+                <span class="s2">&quot;No, thanks, GET ME OUT OF HERE&quot;</span>
             <span class="p">],</span>
             <span class="p">[</span>
-                <span class="k">lambda</span><span class="p">:</span> <span class="n">Bonus_box_Menu</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
-            <span class="p">]</span>
-        <span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="Bonus_box_Menu">
-<a class="viewcode-back" href="../mystery_boxes.html#mystery_boxes.Bonus_box_Menu">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Bonus_box_Menu</span><span class="p">(</span><span class="n">Menu</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initializes a Bonus_box_Menu object.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            game: The game object that the menu is associated with.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">res</span> <span class="o">=</span> <span class="n">Bonus_box</span><span class="p">(</span><span class="n">game</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">character</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;====== Bonus Box ! ======</span><span class="se">\n</span><span class="s2">You just found a Bonus box!</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">desc</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="p">[</span>
-                <span class="s2">&quot;Next Fight!&quot;</span><span class="p">,</span>
-            <span class="p">],</span>
-            <span class="p">[</span>
-                <span class="n">game</span><span class="o">.</span><span class="n">go_combat</span>
+                <span class="n">game</span><span class="o">.</span><span class="n">go_combat</span><span class="p">,</span> 
+                <span class="n">game</span><span class="o">.</span><span class="n">stop</span>
             <span class="p">]</span>
         <span class="p">)</span></div>
 

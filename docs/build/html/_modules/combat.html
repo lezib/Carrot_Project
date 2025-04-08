@@ -64,6 +64,7 @@
             <span class="p">[</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">attack</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">special</span><span class="p">,</span>
+
             <span class="p">]</span>
         <span class="p">)</span>
 <div class="viewcode-block" id="Combat_Menu.try_dodge">
@@ -119,7 +120,7 @@
         <span class="k">else</span> <span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="s2">&quot;The enemy just dodge your attack !&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verify_health</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">Weapon_box_Menu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Mystery_Box_Menu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hitPlayer</span><span class="p">()</span></div>
 
 
