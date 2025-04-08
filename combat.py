@@ -29,6 +29,7 @@ class Combat_Menu(Menu):
             [
                 self.attack,
                 self.special,
+
             ]
         )
     def try_dodge(self, thing):
@@ -73,7 +74,7 @@ class Combat_Menu(Menu):
         else :
             self.precision = "The enemy just dodge your attack !"
         if self.verify_health() == 1:
-            return Weapon_box_Menu(self.game)
+            return Mystery_Box_Menu(self.game)
         return self.hitPlayer()
 
     def special(self):

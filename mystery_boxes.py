@@ -84,41 +84,26 @@ class Bonus_box:
 
         return choice
 
-class Weapon_box_Menu(Menu):
+class Mystery_Box_Menu(Menu):
     def __init__(self, game):
         """
-        Initializes a Weapon_box_Menu object.
+        Menu where the player discover new objects
+        Initializes a Mystery_box object.
 
         Args:
             game: The game object that the menu is associated with.
         """
         self.res = Weapon_box(game).open()
+        self.res = Bonus_box(game).open(game.character)
         game.character.weapon = self.res
         super().__init__(
-            f"====== Weapon Box ! ======\nYou just found a weapon box!\nYou found a {self.res.name}!\nStat: {self.res.damage} damages",
+            f"====== Weapon Box ! ======\nYou just found a weapon box!\nYou found a {self.res.name}!\nStat: {self.res.damage} damages\n\n====== Bonus Box ! ======\nYou just found a Bonus box!\n{self.res.desc}\nAre you ready for your next fight ?",
             [
-                "OH! A Bonus Box!",
+                "Yes !"
+                "No, thanks, GET ME OUT OF HERE"
             ],
             [
-                lambda: Bonus_box_Menu(game)
-            ]
-        )
-
-class Bonus_box_Menu(Menu):
-    def __init__(self, game):
-        """
-        Initializes a Bonus_box_Menu object.
-
-        Args:
-            game: The game object that the menu is associated with.
-        """
-        self.res = Bonus_box(game).open(game.character)
-        super().__init__(
-            f"====== Bonus Box ! ======\nYou just found a Bonus box!\n{self.res.desc}\n",
-            [
-                "Next Fight!",
-            ],
-            [
-                game.go_combat
+                game.go_combat, 
+                game.stop
             ]
         )
