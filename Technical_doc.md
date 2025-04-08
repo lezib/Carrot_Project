@@ -44,4 +44,6 @@ def Exemple(Menu) :
 
 If you don't do that the game will crash.
 
+### Precision:
 
+We stop the game by calling the event function in the class Game : `stop`.
